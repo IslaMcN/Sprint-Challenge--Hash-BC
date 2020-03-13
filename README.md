@@ -24,11 +24,22 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 
 Explain in detail the workings of a dynamic array:
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+
+To add an element to the end of an Array is O(n). If it is a Python List, it is on average O(1), but sometimes O(n). To add an element to the beginning of a list is O(n) no matter what.
+
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
 
+I believe it is always going to be O(n) no matter what.
+
 Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+
+In a block chain you have an index number, timestamp (not required but still important to have), List of transactions, proof used to mine the block, and cryptographic hash of the previous block.
+The blocks in a block chain are what holds the data. It holds everything I mentioned above. The chain is the hash and hash function. The hash function will spit out a hash that is referencing the current block. The next block will have a reference of the that hash. It goes on and on like that until you get to the last block in the chain. 
+Data is organized using a JSON object. 
  
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+
+Proof of work was created to combat spam. It is an arbitrarily difficult problem that is solved by spending a large amount of computation time. Work cannot be re-used, although some systems are vulnerable to this exploitation. Solutions are difficult to compute, but easy to verify.
 
 ## Project Set Up
 
