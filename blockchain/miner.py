@@ -42,9 +42,12 @@ def valid_proof(last_hash, proof):
     """
 
     # TODO: Your code here!
-    guess = f'{last_hash}{proof}'.encode()
+    guess = f'{proof}'.encode()
     guess_hash = hashlib.sha256(guess).hexdigest()
-    return guess_hash[:6] == "000000"
+    if last_hash[-6:] == guess_hash[:6]:
+        return True
+    else:
+        return False
 
 
 if __name__ == '__main__':
