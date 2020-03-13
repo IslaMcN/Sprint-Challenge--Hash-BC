@@ -23,11 +23,11 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = 0
+    proof = 272220
     #  TODO: Your code here
     block_string = json.dumps(last_proof, sort_keys=True)
     while valid_proof(block_string, proof) is False:
-        proof +=1
+        proof +=105
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
 
