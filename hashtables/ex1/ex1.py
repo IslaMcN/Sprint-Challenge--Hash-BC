@@ -10,9 +10,14 @@ def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
     print('Hashtable', ht)
 
-    """
-    YOUR CODE HERE
-    """
+    for i in range(length):
+        weight_in = weights[i]
+        checked = hash_table_retrieve(ht, limit - weight_in)
+        if checked is not None:
+            results = (i, checked)
+            return results
+        else:
+            hash_table_insert(ht, weight_in, i)
     print({"Weights": weights, "Length": length, 'Limit': limit})
 
     return None
