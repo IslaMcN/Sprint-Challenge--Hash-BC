@@ -1,6 +1,6 @@
 import hashlib
 import requests
-
+import json
 import sys
 
 from uuid import uuid4
@@ -23,9 +23,13 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = 0
+    proof =  6253125
     #  TODO: Your code here
-
+    last_hash = f'{last_proof}'.encode()
+    lastHash = hashlib.sha256(last_hash).hexdigest()
+    
+    while valid_proof(lastHash, proof) is False:
+        proof +=1
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
 
@@ -40,7 +44,12 @@ def valid_proof(last_hash, proof):
     """
 
     # TODO: Your code here!
-    pass
+    new_hash = f'{proof}'.encode()
+    new_hash_hash = hashlib.sha256(new_hash).hexdigest()
+    if last_hash[-6:] == new_hash_hash[:6]:
+        return True
+    else:
+        return False
 
 
 if __name__ == '__main__':
@@ -53,7 +62,7 @@ if __name__ == '__main__':
     coins_mined = 0
 
     # Load or create ID
-    f = open("my_id.txt", "r")
+    f = open("blockchain/my_id.txt", "r")
     id = f.read()
     print("ID is", id)
     f.close()
