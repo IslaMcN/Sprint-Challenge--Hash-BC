@@ -24,5 +24,7 @@ def reconstruct_trip(tickets, length):
         route[x] = hash_table_retrieve(hashtable, start)
         start = route[x]
         if length > 2:
-            
+            pass
+        ##Couldn't figure out how to get rid of the none at the end in time
+
     return route
